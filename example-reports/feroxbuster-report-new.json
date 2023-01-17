@@ -1,0 +1,27 @@
+[
+  {
+    "server": "Apache/2.4.54 (Fedora Linux)",
+    "path": "/",
+    "status": 200
+  },
+  {
+    "server": "Apache/2.4.54 (Fedora Linux)",
+    "path": "/",
+    "status": 403
+  },
+  {
+    "server": "Cowboy",
+    "path": "/",
+    "status": 200
+  },
+  {
+    "server": "Cowboy",
+    "path": "/about",
+    "status": 200
+  },
+  {
+    "server": "Cowboy",
+    "path": "/admin",
+    "status": 200
+  }
+]

@@ -1,0 +1,91 @@
+[
+  {
+    "source": "OSSINDEX",
+    "name": "CVE-2020-28469",
+    "severity": "HIGH",
+    "cvssv2": {
+      "score": 7.5,
+      "accessVector": "N",
+      "accessComplexity": "L",
+      "authenticationr": "$enc.json($vuln.cvssV2.authentication)",
+      "confidentialImpact": "N",
+      "integrityImpact": "N",
+      "availabilityImpact": "H",
+      "severity": "HIGH"
+    },
+    "cwes": [
+      "CWE-400"
+    ],
+    "description": "This affects the package glob-parent before 5.1.2. The enclosure regex used to check for strings ending in enclosure containing path separator.",
+    "notes": "",
+    "references": [
+      {
+        "source": "OSSIndex",
+        "url": "https://github.com/nadgowdas/hello-containers/pull/1#issuecomment-759710574",
+        "name": "https://github.com/nadgowdas/hello-containers/pull/1#issuecomment-759710574"
+      },
+      {
+        "source": "OSSIndex",
+        "url": "http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2020-28469",
+        "name": "http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2020-28469"
+      },
+      {
+        "source": "OSSINDEX",
+        "url": "https://ossindex.sonatype.org/vulnerability/CVE-2020-28469?component-type=npm&component-name=glob-parent&utm_source=dependency-check&utm_medium=integration&utm_content=7.1.1",
+        "name": "[CVE-2020-28469] CWE-400: Uncontrolled Resource Consumption ('Resource Exhaustion')"
+      }
+    ],
+    "vulnerableSoftware": [
+      {
+        "software": {
+          "id": "cpe:2.3:a:*:glob-parent:3.1.0:*:*:*:*:*:*:*",
+          "vulnerabilityIdMatched": "true"
+        }
+      }
+    ]
+  },
+  {
+    "source": "NPM",
+    "name": "1067329",
+    "unscored": "true",
+    "severity": "high",
+    "cwes": [],
+    "description": "This affects the package glob-parent before 5.1.2. The enclosure regex used to check for strings ending in enclosure containing path separator.",
+    "notes": "",
+    "references": [
+      {
+        "source": "Advisory 1067329: Regular expression denial of service in glob-parent",
+        "name": "- https://nvd.nist.gov/vuln/detail/CVE-2020-28469\n- https://github.com/gulpjs/glob-parent/pull/36\n- https://github.com/gulpjs/glob-parent/blob/6ce8d11f2f1ed8e80a9526b1dc8cf3aa71f43474/index.js%23L9\n- https://github.com/gulpjs/glob-parent/releases/tag/v5.1.2\n- https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARSBOWERGITHUBES128-1059093\n- https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARSNPM-1059092\n- https://snyk.io/vuln/SNYK-JS-GLOBPARENT-1016905\n- https://www.oracle.com/security-alerts/cpujan2022.html\n- https://github.com/advisories/GHSA-ww39-953v-wcq6"
+      }
+    ],
+    "vulnerableSoftware": [
+      {
+        "software": {
+          "id": "cpe:2.3:a:*:glob-parent:\\<5.1.2:*:*:*:*:*:*:*"
+        }
+      }
+    ]
+  },
+  {
+    "source": "NPM",
+    "name": "1081528",
+    "unscored": "true",
+    "severity": "moderate",
+    "cwes": [],
+    "description": "glob-parent before 6.0.1 and 5.1.2 is vulnerable to Regular Expression Denial of Service (ReDoS). This issue is fixed in version 6.0.1 and 5.1.2.",
+    "notes": "",
+    "references": [
+      {
+        "source": "Advisory 1081528: glob-parent before 6.0.1 and 5.1.2 vulnerable to Regular Expression Denial of Service (ReDoS)",
+        "name": "- https://nvd.nist.gov/vuln/detail/CVE-2021-35065\n- https://github.com/opensearch-project/OpenSearch-Dashboards/issues/1103\n- https://github.com/gulpjs/glob-parent/pull/49\n- https://www.mend.io/vulnerability-database/CVE-2021-35065\n- https://github.com/gulpjs/glob-parent/pull/36\n- https://github.com/gulpjs/glob-parent/releases/tag/v5.1.2\n- https://github.com/gulpjs/glob-parent/releases/tag/v6.0.1\n- https://github.com/advisories/GHSA-cj88-88mr-972w"
+      }
+    ],
+    "vulnerableSoftware": [
+      {
+        "software": {
+          "id": "cpe:2.3:a:*:glob-parent:\\<5.1.2:*:*:*:*:*:*:*"
+        }
+      }
+    ]
+  }
+]

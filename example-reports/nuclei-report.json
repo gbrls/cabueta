@@ -1,0 +1,872 @@
+[
+  {
+    "template-id": "addeventlistener-detect",
+    "info": {
+      "name": "DOM EventListener - Cross-Site Scripting",
+      "author": [
+        "yavolo",
+        "dwisiswant0"
+      ],
+      "tags": [
+        "xss",
+        "misc"
+      ],
+      "description": "EventListener contains a cross-site scripting vulnerability via the document object model (DOM). An attacker can execute arbitrary script which can then allow theft of cookie-based authentication credentials and launch of  other attacks.",
+      "reference": [
+        "https://portswigger.net/web-security/dom-based/controlling-the-web-message-source"
+      ],
+      "severity": "info",
+      "classification": {
+        "cve-id": null,
+        "cwe-id": [
+          "cwe-79"
+        ],
+        "cvss-metrics": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N",
+        "cvss-score": 7.2
+      }
+    },
+    "type": "http",
+    "host": "https://www.vtexfaststore.com/",
+    "matched-at": "https://www.vtexfaststore.com/",
+    "ip": "179.191.175.64",
+    "timestamp": "2022-12-14T22:56:40.551055068Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1866.237 Safari/537.36' 'https://www.vtexfaststore.com/'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template-id": "pypiserver-detect",
+    "info": {
+      "name": "PyPI Server Detect",
+      "author": [
+        "ritikchaddha"
+      ],
+      "tags": [
+        "tech",
+        "pypiserver"
+      ],
+      "reference": null,
+      "severity": "info",
+      "metadata": {
+        "verified": true,
+        "shodan-query": "html:\"pypiserver\""
+      }
+    },
+    "type": "http",
+    "host": "https://www.vtexfaststore.com/",
+    "matched-at": "https://www.vtexfaststore.com/",
+    "ip": "179.191.175.64",
+    "timestamp": "2022-12-14T22:56:40.620015072Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1866.237 Safari/537.36' 'https://www.vtexfaststore.com/'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template-id": "tech-detect",
+    "info": {
+      "name": "Wappalyzer Technology Detection",
+      "author": [
+        "hakluke"
+      ],
+      "tags": [
+        "tech"
+      ],
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "next.js",
+    "type": "http",
+    "host": "https://www.vtexfaststore.com/",
+    "matched-at": "https://www.vtexfaststore.com/",
+    "ip": "179.191.175.64",
+    "timestamp": "2022-12-14T22:56:41.270602358Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Mozilla/5.0 (Windows NT 6.4; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2225.0 Safari/537.36' 'https://www.vtexfaststore.com/'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template-id": "robots-txt-endpoint",
+    "info": {
+      "name": "robots.txt endpoint prober",
+      "author": [
+        "caspergn",
+        "pdteam"
+      ],
+      "tags": null,
+      "reference": null,
+      "severity": "info"
+    },
+    "type": "http",
+    "host": "https://www.vtexfaststore.com/",
+    "matched-at": "https://www.vtexfaststore.com/robots.txt",
+    "ip": "179.191.175.64",
+    "timestamp": "2022-12-14T22:56:41.658654609Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1866.237 Safari/537.36' 'https://www.vtexfaststore.com/robots.txt'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template-id": "tls-version",
+    "info": {
+      "name": "TLS Version",
+      "author": [
+        "pdteam"
+      ],
+      "tags": [
+        "ssl"
+      ],
+      "reference": null,
+      "severity": "info"
+    },
+    "type": "ssl",
+    "host": "www.vtexfaststore.com",
+    "matched-at": "www.vtexfaststore.com",
+    "extracted-results": [
+      "tls13"
+    ],
+    "ip": "179.191.175.64",
+    "timestamp": "2022-12-14T22:56:43.776937628Z",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "headers",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "content-security-policy",
+    "type": "http",
+    "host": "https://www.vtexfaststore.com/",
+    "matched-at": "https://www.vtexfaststore.com/",
+    "ip": "179.191.175.64",
+    "timestamp": "2022-12-14T22:56:48.467100602Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2226.0 Safari/537.36' 'https://www.vtexfaststore.com/'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "headers",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "x-frame-options",
+    "type": "http",
+    "host": "https://www.vtexfaststore.com/",
+    "matched-at": "https://www.vtexfaststore.com/",
+    "ip": "179.191.175.64",
+    "timestamp": "2022-12-14T22:56:48.467655697Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2226.0 Safari/537.36' 'https://www.vtexfaststore.com/'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "headers",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "x-content-type-options",
+    "type": "http",
+    "host": "https://www.vtexfaststore.com/",
+    "matched-at": "https://www.vtexfaststore.com/",
+    "ip": "179.191.175.64",
+    "timestamp": "2022-12-14T22:56:48.467699697Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2226.0 Safari/537.36' 'https://www.vtexfaststore.com/'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "headers",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "cross-origin-resource-policy",
+    "type": "http",
+    "host": "https://www.vtexfaststore.com/",
+    "matched-at": "https://www.vtexfaststore.com/",
+    "ip": "179.191.175.64",
+    "timestamp": "2022-12-14T22:56:48.467725597Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2226.0 Safari/537.36' 'https://www.vtexfaststore.com/'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "headers",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "permissions-policy",
+    "type": "http",
+    "host": "https://www.vtexfaststore.com/",
+    "matched-at": "https://www.vtexfaststore.com/",
+    "ip": "179.191.175.64",
+    "timestamp": "2022-12-14T22:56:48.467751796Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2226.0 Safari/537.36' 'https://www.vtexfaststore.com/'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "headers",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "clear-site-data",
+    "type": "http",
+    "host": "https://www.vtexfaststore.com/",
+    "matched-at": "https://www.vtexfaststore.com/",
+    "ip": "179.191.175.64",
+    "timestamp": "2022-12-14T22:56:48.467778096Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2226.0 Safari/537.36' 'https://www.vtexfaststore.com/'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "headers",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "cross-origin-embedder-policy",
+    "type": "http",
+    "host": "https://www.vtexfaststore.com/",
+    "matched-at": "https://www.vtexfaststore.com/",
+    "ip": "179.191.175.64",
+    "timestamp": "2022-12-14T22:56:48.467804296Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2226.0 Safari/537.36' 'https://www.vtexfaststore.com/'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "headers",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "x-permitted-cross-domain-policies",
+    "type": "http",
+    "host": "https://www.vtexfaststore.com/",
+    "matched-at": "https://www.vtexfaststore.com/",
+    "ip": "179.191.175.64",
+    "timestamp": "2022-12-14T22:56:48.467825796Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2226.0 Safari/537.36' 'https://www.vtexfaststore.com/'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "headers",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "cross-origin-opener-policy",
+    "type": "http",
+    "host": "https://www.vtexfaststore.com/",
+    "matched-at": "https://www.vtexfaststore.com/",
+    "ip": "179.191.175.64",
+    "timestamp": "2022-12-14T22:56:48.467847596Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2226.0 Safari/537.36' 'https://www.vtexfaststore.com/'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "headers",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "access-control-allow-methods",
+    "type": "http",
+    "host": "https://www.vtexfaststore.com/",
+    "matched-at": "https://www.vtexfaststore.com/",
+    "ip": "179.191.175.64",
+    "timestamp": "2022-12-14T22:56:48.467868595Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2226.0 Safari/537.36' 'https://www.vtexfaststore.com/'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "headers",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "access-control-allow-headers",
+    "type": "http",
+    "host": "https://www.vtexfaststore.com/",
+    "matched-at": "https://www.vtexfaststore.com/",
+    "ip": "179.191.175.64",
+    "timestamp": "2022-12-14T22:56:48.467889095Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2226.0 Safari/537.36' 'https://www.vtexfaststore.com/'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "headers",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "referrer-policy",
+    "type": "http",
+    "host": "https://www.vtexfaststore.com/",
+    "matched-at": "https://www.vtexfaststore.com/",
+    "ip": "179.191.175.64",
+    "timestamp": "2022-12-14T22:56:48.467911695Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2226.0 Safari/537.36' 'https://www.vtexfaststore.com/'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "headers",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "access-control-allow-origin",
+    "type": "http",
+    "host": "https://www.vtexfaststore.com/",
+    "matched-at": "https://www.vtexfaststore.com/",
+    "ip": "179.191.175.64",
+    "timestamp": "2022-12-14T22:56:48.467931895Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2226.0 Safari/537.36' 'https://www.vtexfaststore.com/'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "headers",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "access-control-allow-credentials",
+    "type": "http",
+    "host": "https://www.vtexfaststore.com/",
+    "matched-at": "https://www.vtexfaststore.com/",
+    "ip": "179.191.175.64",
+    "timestamp": "2022-12-14T22:56:48.467958095Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2226.0 Safari/537.36' 'https://www.vtexfaststore.com/'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "headers",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "access-control-expose-headers",
+    "type": "http",
+    "host": "https://www.vtexfaststore.com/",
+    "matched-at": "https://www.vtexfaststore.com/",
+    "ip": "179.191.175.64",
+    "timestamp": "2022-12-14T22:56:48.467978495Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2226.0 Safari/537.36' 'https://www.vtexfaststore.com/'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "headers",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "access-control-max-age",
+    "type": "http",
+    "host": "https://www.vtexfaststore.com/",
+    "matched-at": "https://www.vtexfaststore.com/",
+    "ip": "179.191.175.64",
+    "timestamp": "2022-12-14T22:56:48.468002394Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2226.0 Safari/537.36' 'https://www.vtexfaststore.com/'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template-id": "options-method",
+    "info": {
+      "name": "Allowed Options Method",
+      "author": [
+        "pdteam"
+      ],
+      "tags": [
+        "misc",
+        "generic"
+      ],
+      "reference": null,
+      "severity": "info"
+    },
+    "type": "http",
+    "host": "https://www.vtexfaststore.com/",
+    "matched-at": "https://www.vtexfaststore.com/",
+    "extracted-results": [
+      "HEAD",
+      "GET"
+    ],
+    "ip": "179.191.175.64",
+    "timestamp": "2022-12-14T22:56:55.296249773Z",
+    "curl-command": "curl -X 'OPTIONS' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36' 'https://www.vtexfaststore.com/'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template-id": "cname-fingerprint",
+    "info": {
+      "name": "CNAME Fingerprint",
+      "author": [
+        "pdteam"
+      ],
+      "tags": [
+        "dns",
+        "cname"
+      ],
+      "description": "A CNAME DNS record was discovered.",
+      "reference": [
+        "https://www.theregister.com/2021/02/24/dns_cname_tracking/",
+        "https://www.ionos.com/digitalguide/hosting/technical-matters/cname-record/"
+      ],
+      "severity": "info",
+      "classification": {
+        "cve-id": null,
+        "cwe-id": [
+          "cwe-200"
+        ]
+      }
+    },
+    "type": "dns",
+    "host": "www.vtexfaststore.com",
+    "matched-at": "www.vtexfaststore.com",
+    "extracted-results": [
+      "www.vtexfaststore.com.cdn.vtex.com."
+    ],
+    "timestamp": "2022-12-14T22:57:32.104605794Z",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template-id": "ssl-dns-names",
+    "info": {
+      "name": "SSL DNS Names",
+      "author": [
+        "pdteam"
+      ],
+      "tags": [
+        "ssl"
+      ],
+      "reference": null,
+      "severity": "info"
+    },
+    "type": "ssl",
+    "host": "www.vtexfaststore.com",
+    "matched-at": "www.vtexfaststore.com",
+    "extracted-results": [
+      "www.vtexfaststore.com"
+    ],
+    "ip": "179.191.175.64",
+    "timestamp": "2022-12-14T22:58:32.83946679Z",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template-id": "CVE-2021-3654",
+    "info": {
+      "name": "Nova noVNC - Open Redirect",
+      "author": [
+        "geeknik"
+      ],
+      "tags": [
+        "redirect",
+        "novnc",
+        "cve",
+        "cve2021",
+        "seclists"
+      ],
+      "description": "Nova noVNC contains an open redirect vulnerability. An attacker can redirect a user to a malicious site and possibly obtain sensitive information, modify data, and/or execute unauthorized operations.",
+      "reference": [
+        "https://seclists.org/oss-sec/2021/q3/188",
+        "http://cve.mitre.org/cgi-bin/cvename.cgi?name=cve-2021-3654",
+        "https://bugs.python.org/issue32084",
+        "https://opendev.org/openstack/nova/commit/04d48527b62a35d912f93bc75613a6cca606df66",
+        "https://nvd.nist.gov/vuln/detail/cve-2021-3654"
+      ],
+      "severity": "medium",
+      "classification": {
+        "cve-id": [
+          "cve-2021-3654"
+        ],
+        "cwe-id": [
+          "cwe-601"
+        ],
+        "cvss-metrics": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+        "cvss-score": 6.1
+      }
+    },
+    "type": "http",
+    "host": "https://www.vtexfaststore.com/",
+    "matched-at": "https://www.vtexfaststore.com//interact.sh/%2f..",
+    "ip": "179.191.175.64",
+    "timestamp": "2022-12-14T23:00:02.997158807Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36' 'https://www.vtexfaststore.com//interact.sh/%2f..'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template-id": "caddy-open-redirect",
+    "info": {
+      "name": "Caddy 2.4.6 Open Redirect",
+      "author": [
+        "dhiyaneshdk"
+      ],
+      "tags": [
+        "redirect",
+        "caddy",
+        "server"
+      ],
+      "description": "Caddy 2.4.6 contains an open redirect vulnerability via php_fastcgi. An attacker can redirect a user to a malicious site and possibly obtain sensitive information, modify data, and/or execute unauthorized operations.",
+      "reference": [
+        "https://github.com/caddyserver/caddy/issues/4502"
+      ],
+      "severity": "medium",
+      "classification": {
+        "cve-id": null,
+        "cwe-id": [
+          "cwe-601"
+        ],
+        "cvss-metrics": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+        "cvss-score": 6.1
+      }
+    },
+    "type": "http",
+    "host": "https://www.vtexfaststore.com/",
+    "matched-at": "https://www.vtexfaststore.com//interact.sh/%2f..",
+    "ip": "179.191.175.64",
+    "timestamp": "2022-12-14T23:00:02.997284806Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36' 'https://www.vtexfaststore.com//interact.sh/%2f..'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template-id": "open-redirect",
+    "info": {
+      "name": "Open Redirect - Detection",
+      "author": [
+        "afaq",
+        "melbadry9",
+        "elmahdi",
+        "pxmme1337",
+        "regala_",
+        "andirrahmani1",
+        "geeknik"
+      ],
+      "tags": [
+        "redirect",
+        "generic"
+      ],
+      "description": "An open redirect vulnerability was detected. An attacker can redirect a user to a malicious site and possibly obtain sensitive information, modify data, and/or execute unauthorized operations.",
+      "reference": null,
+      "severity": "low",
+      "classification": {
+        "cve-id": null,
+        "cwe-id": [
+          "cwe-601"
+        ],
+        "cvss-metrics": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+        "cvss-score": 6.1
+      }
+    },
+    "type": "http",
+    "host": "https://www.vtexfaststore.com/",
+    "matched-at": "https://www.vtexfaststore.com/%5cinteract.sh/%2f%2e%2e",
+    "meta": {
+      "redirect": "%5cinteract.sh/%2f%2e%2e"
+    },
+    "ip": "179.191.175.64",
+    "timestamp": "2022-12-14T23:00:37.824581416Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Host: www.vtexfaststore.com' -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2227.0 Safari/537.36' 'https://www.vtexfaststore.com/%5cinteract.sh/%2f%2e%2e'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template-id": "ssl-issuer",
+    "info": {
+      "name": "Detect SSL Certificate Issuer",
+      "author": [
+        "lingtren"
+      ],
+      "tags": [
+        "ssl"
+      ],
+      "reference": null,
+      "severity": "info"
+    },
+    "type": "ssl",
+    "host": "www.vtexfaststore.com",
+    "matched-at": "www.vtexfaststore.com",
+    "extracted-results": [
+      "Let's Encrypt"
+    ],
+    "ip": "179.191.175.64",
+    "timestamp": "2022-12-14T23:01:02.871892237Z",
+    "matcher-status": true,
+    "matched-line": null
+  }
+]

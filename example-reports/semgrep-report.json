@@ -1,0 +1,1061 @@
+{
+  "errors": [
+    {
+      "code": 3,
+      "level": "warn",
+      "message": "Syntax error at line credentials/main.go:7:\n `=` was unexpected",
+      "path": "credentials/main.go",
+      "spans": [
+        {
+          "end": {
+            "col": 17,
+            "line": 7
+          },
+          "file": "credentials/main.go",
+          "start": {
+            "col": 16,
+            "line": 7
+          }
+        }
+      ],
+      "type": "Syntax error"
+    },
+    {
+      "code": 3,
+      "level": "warn",
+      "message": "Syntax error at line semgrep-report.json:0:\n `` was unexpected",
+      "path": "semgrep-report.json",
+      "type": "Syntax error"
+    }
+  ],
+  "paths": {
+    "_comment": "<add --verbose for a list of skipped paths>",
+    "scanned": [
+      "credentials/file.js",
+      "credentials/gitleaks-report.json",
+      "credentials/id_ed25519",
+      "credentials/main.go",
+      "credentials/semgrep-report.json",
+      "cs-00/Main.cs",
+      "cs-00/semgrep-report.json",
+      "go-00/main.go",
+      "go-00/semgrep-report.json",
+      "js-00/index.html",
+      "js-00/semgrep-report.json",
+      "js-00/vulnerable.js",
+      "py-00/bandit-report.json",
+      "py-00/main.py",
+      "py-00/semgrep-report.json",
+      "semgrep-report.json",
+      "terraform-00/main.tf"
+    ]
+  },
+  "results": [
+    {
+      "check_id": "javascript.browser.security.insecure-document-method.insecure-document-method",
+      "end": {
+        "col": 21,
+        "line": 6,
+        "offset": 174
+      },
+      "extra": {
+        "fingerprint": "eef56d84ea5ee9cc6208561f57817c658faae836d64c07b531116c2e3926a3becb290af6c9cff32365e11149f1c4c9109367b6ecbf8039f00cbfed44bbe77bfe_0",
+        "is_ignored": false,
+        "lines": "    p.innerHTML = x;",
+        "message": "User controlled data in methods like `innerHTML`, `outerHTML` or `document.write` is an anti-pattern that can lead to XSS vulnerabilities",
+        "metadata": {
+          "category": "security",
+          "cwe": "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+          "license": "Commons Clause License Condition v1.0[LGPL-2.1-only]",
+          "owasp": "A7: Cross-Site Scripting (XSS)",
+          "shortlink": "https://sg.run/LwA9",
+          "source": "https://semgrep.dev/r/javascript.browser.security.insecure-document-method.insecure-document-method",
+          "technology": [
+            "browser"
+          ]
+        },
+        "metavars": {
+          "$EL": {
+            "abstract_content": "p",
+            "end": {
+              "col": 6,
+              "line": 6,
+              "offset": 159
+            },
+            "start": {
+              "col": 5,
+              "line": 6,
+              "offset": 158
+            },
+            "unique_id": {
+              "sid": 3,
+              "type": "id"
+            }
+          },
+          "$HTML": {
+            "abstract_content": "x",
+            "end": {
+              "col": 20,
+              "line": 6,
+              "offset": 173
+            },
+            "propagated_value": {
+              "svalue_abstract_content": "document.forms[\"myForm\"][\"fname\"].value",
+              "svalue_end": {
+                "col": 52,
+                "line": 3,
+                "offset": 101
+              },
+              "svalue_start": {
+                "col": 13,
+                "line": 3,
+                "offset": 62
+              }
+            },
+            "start": {
+              "col": 19,
+              "line": 6,
+              "offset": 172
+            },
+            "unique_id": {
+              "sid": 2,
+              "type": "id"
+            }
+          }
+        },
+        "severity": "ERROR"
+      },
+      "path": "js-00/vulnerable.js",
+      "start": {
+        "col": 5,
+        "line": 6,
+        "offset": 158
+      }
+    },
+    {
+      "check_id": "javascript.browser.security.insecure-document-method.insecure-document-method",
+      "end": {
+        "col": 58,
+        "line": 13,
+        "offset": 365
+      },
+      "extra": {
+        "fingerprint": "6a4d1145593c87a80c9ef48f61266f08f7cbe86a860b3b8bcb71156907363e962a3e5370f358799280645f2ba56a112d41e18983a919e6da4c49f2da8013c2e7_0",
+        "is_ignored": false,
+        "lines": "  this.element.innerHTML = \"<a href='\"+url+\"'>About</a>\";",
+        "message": "User controlled data in methods like `innerHTML`, `outerHTML` or `document.write` is an anti-pattern that can lead to XSS vulnerabilities",
+        "metadata": {
+          "category": "security",
+          "cwe": "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+          "license": "Commons Clause License Condition v1.0[LGPL-2.1-only]",
+          "owasp": "A7: Cross-Site Scripting (XSS)",
+          "shortlink": "https://sg.run/LwA9",
+          "source": "https://semgrep.dev/r/javascript.browser.security.insecure-document-method.insecure-document-method",
+          "technology": [
+            "browser"
+          ]
+        },
+        "metavars": {
+          "$EL": {
+            "abstract_content": "this.element",
+            "end": {
+              "col": 15,
+              "line": 13,
+              "offset": 322
+            },
+            "start": {
+              "col": 3,
+              "line": 13,
+              "offset": 310
+            },
+            "unique_id": {
+              "md5sum": "7d297d24b64e15bb8973ca78ce9cc638",
+              "type": "AST"
+            }
+          },
+          "$HTML": {
+            "abstract_content": "\"<a href='\"+url+\"'>About</a>\"",
+            "end": {
+              "col": 57,
+              "line": 13,
+              "offset": 364
+            },
+            "start": {
+              "col": 28,
+              "line": 13,
+              "offset": 335
+            },
+            "unique_id": {
+              "md5sum": "4c3d94b73fde8545a9ba842b01c5d027",
+              "type": "AST"
+            }
+          }
+        },
+        "severity": "ERROR"
+      },
+      "path": "js-00/vulnerable.js",
+      "start": {
+        "col": 3,
+        "line": 13,
+        "offset": 310
+      }
+    },
+    {
+      "check_id": "javascript.browser.security.insecure-document-method.insecure-document-method",
+      "end": {
+        "col": 62,
+        "line": 18,
+        "offset": 487
+      },
+      "extra": {
+        "fingerprint": "513a5fafc2d9d59f2c432aba8d0644775c32f48dd5030e73358c2204fc01ddd0eda3cee771d6a8289f01cc2bac1a3398fcc07c53899ee47330f7b98af1b87459_0",
+        "is_ignored": false,
+        "lines": "  ReactDOM.findDOMNode(this.someRef).outerHTML = input.value;",
+        "message": "User controlled data in methods like `innerHTML`, `outerHTML` or `document.write` is an anti-pattern that can lead to XSS vulnerabilities",
+        "metadata": {
+          "category": "security",
+          "cwe": "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+          "license": "Commons Clause License Condition v1.0[LGPL-2.1-only]",
+          "owasp": "A7: Cross-Site Scripting (XSS)",
+          "shortlink": "https://sg.run/LwA9",
+          "source": "https://semgrep.dev/r/javascript.browser.security.insecure-document-method.insecure-document-method",
+          "technology": [
+            "browser"
+          ]
+        },
+        "metavars": {
+          "$EL": {
+            "abstract_content": "ReactDOM.findDOMNode(this.someRef)",
+            "end": {
+              "col": 37,
+              "line": 18,
+              "offset": 462
+            },
+            "start": {
+              "col": 3,
+              "line": 18,
+              "offset": 428
+            },
+            "unique_id": {
+              "md5sum": "a1c5365bb43ee823c883e301416305e6",
+              "type": "AST"
+            }
+          },
+          "$HTML": {
+            "abstract_content": "input.value",
+            "end": {
+              "col": 61,
+              "line": 18,
+              "offset": 486
+            },
+            "start": {
+              "col": 50,
+              "line": 18,
+              "offset": 475
+            },
+            "unique_id": {
+              "md5sum": "20d27f363da9a4491058b17be8d6c724",
+              "type": "AST"
+            }
+          }
+        },
+        "severity": "ERROR"
+      },
+      "path": "js-00/vulnerable.js",
+      "start": {
+        "col": 3,
+        "line": 18,
+        "offset": 428
+      }
+    },
+    {
+      "check_id": "python.django.security.injection.sql.sql-injection-using-db-cursor-execute.sql-injection-db-cursor-execute",
+      "end": {
+        "col": 107,
+        "line": 7,
+        "offset": 295
+      },
+      "extra": {
+        "fingerprint": "dc651759bbb71a5c939c0276cd590b1a5f4785cba5537384d3b686fa54093942d8d0b73874c18bc442604926c26570a135e9d8e8d663af883919c75f631c0d26_0",
+        "is_ignored": false,
+        "lines": "    username = request.values.get('username')\n    password = request.values.get('password')\n    db = pymysql.connect(\"localhost\")\n    cursor = db.cursor()\n    cursor.execute(\"SELECT * FROM users WHERE username = '%s' AND password = '%s'\" % (username, password))",
+        "message": "User-controlled data from a request is passed to 'execute()'. This could lead to a SQL injection and therefore protected information could be leaked. Instead, use django's QuerySets, which are built with query parameterization  and therefore not vulnerable to sql injection. For example, you could use `Entry.objects.filter(date=2006)`.",
+        "metadata": {
+          "category": "security",
+          "cwe": "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
+          "license": "Commons Clause License Condition v1.0[LGPL-2.1-only]",
+          "owasp": "A1: Injection",
+          "references": [
+            "https://docs.djangoproject.com/en/3.0/topics/security/#sql-injection-protection"
+          ],
+          "shortlink": "https://sg.run/qx7y",
+          "source": "https://semgrep.dev/r/python.django.security.injection.sql.sql-injection-using-db-cursor-execute.sql-injection-db-cursor-execute",
+          "technology": [
+            "django"
+          ]
+        },
+        "metavars": {
+          "$CURSOR": {
+            "abstract_content": "cursor",
+            "end": {
+              "col": 11,
+              "line": 7,
+              "offset": 199
+            },
+            "propagated_value": {
+              "svalue_abstract_content": "db.cursor()",
+              "svalue_end": {
+                "col": 25,
+                "line": 6,
+                "offset": 188
+              },
+              "svalue_start": {
+                "col": 14,
+                "line": 6,
+                "offset": 177
+              }
+            },
+            "start": {
+              "col": 5,
+              "line": 7,
+              "offset": 193
+            },
+            "unique_id": {
+              "sid": 4,
+              "type": "id"
+            }
+          },
+          "$DATA": {
+            "abstract_content": "username",
+            "end": {
+              "col": 13,
+              "line": 3,
+              "offset": 46
+            },
+            "start": {
+              "col": 5,
+              "line": 3,
+              "offset": 38
+            },
+            "unique_id": {
+              "sid": 1,
+              "type": "id"
+            }
+          },
+          "$FUNC": {
+            "abstract_content": "login",
+            "end": {
+              "col": 10,
+              "line": 2,
+              "offset": 30
+            },
+            "start": {
+              "col": 5,
+              "line": 2,
+              "offset": 25
+            },
+            "unique_id": {
+              "md5sum": "837ba4f0afdd7ccfec90fc146d161c88",
+              "type": "AST"
+            }
+          },
+          "$STR": {
+            "abstract_content": "\"SELECT * FROM users WHERE username = '%s' AND password = '%s'\"",
+            "end": {
+              "col": 83,
+              "line": 7,
+              "offset": 271
+            },
+            "start": {
+              "col": 20,
+              "line": 7,
+              "offset": 208
+            },
+            "unique_id": {
+              "md5sum": "0fcfef59532f240d7fff6072a74191fc",
+              "type": "AST"
+            }
+          },
+          "$W": {
+            "abstract_content": "values",
+            "end": {
+              "col": 30,
+              "line": 3,
+              "offset": 63
+            },
+            "start": {
+              "col": 24,
+              "line": 3,
+              "offset": 57
+            },
+            "unique_id": {
+              "md5sum": "c946455e4adb0d46742366c8f77ed756",
+              "type": "AST"
+            }
+          }
+        },
+        "severity": "WARNING"
+      },
+      "path": "py-00/main.py",
+      "start": {
+        "col": 5,
+        "line": 3,
+        "offset": 38
+      }
+    },
+    {
+      "check_id": "python.django.security.injection.sql.sql-injection-using-db-cursor-execute.sql-injection-db-cursor-execute",
+      "end": {
+        "col": 107,
+        "line": 7,
+        "offset": 295
+      },
+      "extra": {
+        "fingerprint": "2800af3d44f4b8adb3799dc849bd9cfea9336ec02b3aed71c328b55a371c85fef6290da3f533695a121cf2367bdb11332e1369e68e6c3e812f40da33a2633661_0",
+        "is_ignored": false,
+        "lines": "    password = request.values.get('password')\n    db = pymysql.connect(\"localhost\")\n    cursor = db.cursor()\n    cursor.execute(\"SELECT * FROM users WHERE username = '%s' AND password = '%s'\" % (username, password))",
+        "message": "User-controlled data from a request is passed to 'execute()'. This could lead to a SQL injection and therefore protected information could be leaked. Instead, use django's QuerySets, which are built with query parameterization  and therefore not vulnerable to sql injection. For example, you could use `Entry.objects.filter(date=2006)`.",
+        "metadata": {
+          "category": "security",
+          "cwe": "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
+          "license": "Commons Clause License Condition v1.0[LGPL-2.1-only]",
+          "owasp": "A1: Injection",
+          "references": [
+            "https://docs.djangoproject.com/en/3.0/topics/security/#sql-injection-protection"
+          ],
+          "shortlink": "https://sg.run/qx7y",
+          "source": "https://semgrep.dev/r/python.django.security.injection.sql.sql-injection-using-db-cursor-execute.sql-injection-db-cursor-execute",
+          "technology": [
+            "django"
+          ]
+        },
+        "metavars": {
+          "$CURSOR": {
+            "abstract_content": "cursor",
+            "end": {
+              "col": 11,
+              "line": 7,
+              "offset": 199
+            },
+            "propagated_value": {
+              "svalue_abstract_content": "db.cursor()",
+              "svalue_end": {
+                "col": 25,
+                "line": 6,
+                "offset": 188
+              },
+              "svalue_start": {
+                "col": 14,
+                "line": 6,
+                "offset": 177
+              }
+            },
+            "start": {
+              "col": 5,
+              "line": 7,
+              "offset": 193
+            },
+            "unique_id": {
+              "sid": 4,
+              "type": "id"
+            }
+          },
+          "$DATA": {
+            "abstract_content": "password",
+            "end": {
+              "col": 13,
+              "line": 4,
+              "offset": 92
+            },
+            "start": {
+              "col": 5,
+              "line": 4,
+              "offset": 84
+            },
+            "unique_id": {
+              "sid": 2,
+              "type": "id"
+            }
+          },
+          "$FUNC": {
+            "abstract_content": "login",
+            "end": {
+              "col": 10,
+              "line": 2,
+              "offset": 30
+            },
+            "start": {
+              "col": 5,
+              "line": 2,
+              "offset": 25
+            },
+            "unique_id": {
+              "md5sum": "837ba4f0afdd7ccfec90fc146d161c88",
+              "type": "AST"
+            }
+          },
+          "$STR": {
+            "abstract_content": "\"SELECT * FROM users WHERE username = '%s' AND password = '%s'\"",
+            "end": {
+              "col": 83,
+              "line": 7,
+              "offset": 271
+            },
+            "start": {
+              "col": 20,
+              "line": 7,
+              "offset": 208
+            },
+            "unique_id": {
+              "md5sum": "0fcfef59532f240d7fff6072a74191fc",
+              "type": "AST"
+            }
+          },
+          "$W": {
+            "abstract_content": "values",
+            "end": {
+              "col": 30,
+              "line": 4,
+              "offset": 109
+            },
+            "start": {
+              "col": 24,
+              "line": 4,
+              "offset": 103
+            },
+            "unique_id": {
+              "md5sum": "9d2a61e8b8aad520b569470d69b48585",
+              "type": "AST"
+            }
+          }
+        },
+        "severity": "WARNING"
+      },
+      "path": "py-00/main.py",
+      "start": {
+        "col": 5,
+        "line": 4,
+        "offset": 84
+      }
+    },
+    {
+      "check_id": "python.django.security.injection.tainted-sql-string.tainted-sql-string",
+      "end": {
+        "col": 106,
+        "line": 7,
+        "offset": 294
+      },
+      "extra": {
+        "fingerprint": "aa27510e625f54bed8093ee634d817d24451bcebfa9ea2aef6bdbd476d76da1fe3b4ee4c0eeb4511f4480b77f61ba8c7aa7b9397694d77d6eafc8967b3676d7e_0",
+        "is_ignored": false,
+        "lines": "    cursor.execute(\"SELECT * FROM users WHERE username = '%s' AND password = '%s'\" % (username, password))",
+        "message": "Detected user input used to manually construct a SQL string. This is usually bad practice because manual construction could accidentally result in a SQL injection. An attacker could use a SQL injection to steal or modify contents of the database. Instead, use a parameterized query which is available by default in most database engines. Alternatively, consider using the Django object-relational mappers (ORM) instead of raw SQL queries.",
+        "metadata": {
+          "category": "security",
+          "cwe": "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')\n",
+          "license": "Commons Clause License Condition v1.0[LGPL-2.1-only]",
+          "owasp": [
+            "A01:2017 - Injection",
+            "A03:2021 - Injection"
+          ],
+          "references": [
+            "https://docs.djangoproject.com/en/3.0/topics/security/#sql-injection-protection"
+          ],
+          "shortlink": "https://sg.run/PbZp",
+          "source": "https://semgrep.dev/r/python.django.security.injection.tainted-sql-string.tainted-sql-string",
+          "technology": [
+            "django"
+          ]
+        },
+        "metavars": {
+          "$ANYTHING": {
+            "abstract_content": "values",
+            "end": {
+              "col": 30,
+              "line": 4,
+              "offset": 109
+            },
+            "start": {
+              "col": 24,
+              "line": 4,
+              "offset": 103
+            },
+            "unique_id": {
+              "md5sum": "9d2a61e8b8aad520b569470d69b48585",
+              "type": "AST"
+            }
+          },
+          "$SQLSTR": {
+            "abstract_content": "SELECT * FROM users WHERE username = '%s' AND password = '%s'",
+            "end": {
+              "col": 82,
+              "line": 7,
+              "offset": 270
+            },
+            "start": {
+              "col": 21,
+              "line": 7,
+              "offset": 209
+            },
+            "unique_id": {
+              "md5sum": "0fcfef59532f240d7fff6072a74191fc",
+              "type": "AST"
+            }
+          }
+        },
+        "severity": "ERROR"
+      },
+      "path": "py-00/main.py",
+      "start": {
+        "col": 20,
+        "line": 7,
+        "offset": 208
+      }
+    },
+    {
+      "check_id": "python.lang.security.audit.formatted-sql-query.formatted-sql-query",
+      "end": {
+        "col": 107,
+        "line": 7,
+        "offset": 295
+      },
+      "extra": {
+        "fingerprint": "a46d39fd8784ae68058097b1f697cd85ebc5306f55ce4027b134f61ea1224a93c2b1fa3b1b8222b2b7a3699bda805e07698629e0d1f4c6637f0b1129e77edbfb_0",
+        "is_ignored": false,
+        "lines": "    cursor.execute(\"SELECT * FROM users WHERE username = '%s' AND password = '%s'\" % (username, password))",
+        "message": "Detected possible formatted SQL query. Use parameterized queries instead.",
+        "metadata": {
+          "category": "security",
+          "cwe": "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
+          "license": "Commons Clause License Condition v1.0[LGPL-2.1-only]",
+          "owasp": "A1: Injection",
+          "references": [
+            "https://stackoverflow.com/questions/775296/mysql-parameterized-queries"
+          ],
+          "shortlink": "https://sg.run/EkWw",
+          "source": "https://semgrep.dev/r/python.lang.security.audit.formatted-sql-query.formatted-sql-query",
+          "technology": [
+            "python"
+          ]
+        },
+        "metavars": {
+          "$DB": {
+            "abstract_content": "cursor",
+            "end": {
+              "col": 11,
+              "line": 7,
+              "offset": 199
+            },
+            "propagated_value": {
+              "svalue_abstract_content": "db.cursor()",
+              "svalue_end": {
+                "col": 25,
+                "line": 6,
+                "offset": 188
+              },
+              "svalue_start": {
+                "col": 14,
+                "line": 6,
+                "offset": 177
+              }
+            },
+            "start": {
+              "col": 5,
+              "line": 7,
+              "offset": 193
+            },
+            "unique_id": {
+              "sid": 4,
+              "type": "id"
+            }
+          }
+        },
+        "severity": "WARNING"
+      },
+      "path": "py-00/main.py",
+      "start": {
+        "col": 5,
+        "line": 7,
+        "offset": 193
+      }
+    },
+    {
+      "check_id": "python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
+      "end": {
+        "col": 107,
+        "line": 7,
+        "offset": 295
+      },
+      "extra": {
+        "fingerprint": "ac508e152d5bab51ad01293e532296b6e4cf1e42c9819b73e0e83585a2096f15008bd9e04fe1879c02e9203b2e4998d0c714e38b51dccb215aaa81f070fab182_0",
+        "is_ignored": false,
+        "lines": "    cursor.execute(\"SELECT * FROM users WHERE username = '%s' AND password = '%s'\" % (username, password))",
+        "message": "Avoiding SQL string concatenation: untrusted input concatenated with raw SQL query can result in SQL Injection. In order to execute raw query safely, prepared statement should be used. SQLAlchemy provides TextualSQL to easily used prepared statement with named parameters. For complex SQL composition, use SQL Expression Language or Schema Definition Language. In most cases, SQLAlchemy ORM will be a better option.",
+        "metadata": {
+          "category": "security",
+          "cwe": "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')\n",
+          "license": "Commons Clause License Condition v1.0[LGPL-2.1-only]",
+          "owasp": "A1: Injection",
+          "references": [
+            "https://docs.sqlalchemy.org/en/14/core/tutorial.html#using-textual-sql",
+            "https://www.tutorialspoint.com/sqlalchemy/sqlalchemy_quick_guide.htm",
+            "https://docs.sqlalchemy.org/en/14/core/tutorial.html#using-more-specific-text-with-table-expression-literal-column-and-expression-column"
+          ],
+          "shortlink": "https://sg.run/2b1L",
+          "source": "https://semgrep.dev/r/python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
+          "technology": [
+            "sqlalchemy"
+          ]
+        },
+        "metavars": {
+          "$CONNECTION": {
+            "abstract_content": "cursor",
+            "end": {
+              "col": 11,
+              "line": 7,
+              "offset": 199
+            },
+            "propagated_value": {
+              "svalue_abstract_content": "db.cursor()",
+              "svalue_end": {
+                "col": 25,
+                "line": 6,
+                "offset": 188
+              },
+              "svalue_start": {
+                "col": 14,
+                "line": 6,
+                "offset": 177
+              }
+            },
+            "start": {
+              "col": 5,
+              "line": 7,
+              "offset": 193
+            },
+            "unique_id": {
+              "sid": 4,
+              "type": "id"
+            }
+          },
+          "$SQL": {
+            "abstract_content": "\"SELECT * FROM users WHERE username = '%s' AND password = '%s'\"",
+            "end": {
+              "col": 83,
+              "line": 7,
+              "offset": 271
+            },
+            "start": {
+              "col": 20,
+              "line": 7,
+              "offset": 208
+            },
+            "unique_id": {
+              "md5sum": "0fcfef59532f240d7fff6072a74191fc",
+              "type": "AST"
+            }
+          }
+        },
+        "severity": "ERROR"
+      },
+      "path": "py-00/main.py",
+      "start": {
+        "col": 5,
+        "line": 7,
+        "offset": 193
+      }
+    },
+    {
+      "check_id": "generic.secrets.security.detected-private-key.detected-private-key",
+      "end": {
+        "col": 71,
+        "line": 2,
+        "offset": 106
+      },
+      "extra": {
+        "fingerprint": "832dd66a9ebe79b4b2a25a17267699b753b01cc760d5242d6f66b331a44246291a4130cb04cc5eef7e3929eb4fb9b718b639daf485a49a5e820b29e763678f0a_0",
+        "is_ignored": false,
+        "lines": "-----BEGIN OPENSSH PRIVATE KEY-----\nb3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAaaAAABAAAAMwAAAAtzc2gtZW",
+        "message": "Private Key detected. This is a sensitive credential and should not be hardcoded here. Instead, store this in a separate, private file.",
+        "metadata": {
+          "category": "security",
+          "confidence": "MEDIUM",
+          "license": "Commons Clause License Condition v1.0[LGPL-2.1-only]",
+          "shortlink": "https://sg.run/b7dr",
+          "source": "https://semgrep.dev/r/generic.secrets.security.detected-private-key.detected-private-key",
+          "source-rule-url": "https://github.com/grab/secret-scanner/blob/master/scanner/signatures/pattern.go",
+          "technology": [
+            "secrets"
+          ]
+        },
+        "metavars": {
+          "$KEY": {
+            "abstract_content": "b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAaaAAABAAAAMwAAAAtzc2gtZW",
+            "end": {
+              "col": 71,
+              "line": 2,
+              "offset": 106
+            },
+            "start": {
+              "col": 1,
+              "line": 2,
+              "offset": 36
+            },
+            "unique_id": {
+              "md5sum": "63eb730f39e2af179029c126e43729a8",
+              "type": "AST"
+            }
+          },
+          "$TYPE": {
+            "abstract_content": "OPENSSH",
+            "end": {
+              "col": 19,
+              "line": 1,
+              "offset": 18
+            },
+            "start": {
+              "col": 12,
+              "line": 1,
+              "offset": 11
+            },
+            "unique_id": {
+              "md5sum": "4df79ed34abea26b07db4fa22b83651b",
+              "type": "AST"
+            }
+          }
+        },
+        "severity": "ERROR"
+      },
+      "path": "credentials/id_ed25519",
+      "start": {
+        "col": 1,
+        "line": 1,
+        "offset": 0
+      }
+    },
+    {
+      "check_id": "go.lang.security.audit.database.string-formatted-query.string-formatted-query",
+      "end": {
+        "col": 79,
+        "line": 14,
+        "offset": 234
+      },
+      "extra": {
+        "fingerprint": "0b989a7e066abb6f2338f03f500d7ad36ea8e6ff70bf137ac7320eff45439dd8137cee5ee8381d7fd29a0c03013217a07c61a9a8b7ebeaa6a3c12f7f25531a51_0",
+        "is_ignored": false,
+        "lines": "    rows, err := db.Query(fmt.Sprintf(\"SELECT * FROM user WHERE id = %s\", id))",
+        "message": "String-formatted SQL query detected. This could lead to SQL injection if the string is not sanitized properly. Audit this call to ensure the SQL is not manipulable by external data.",
+        "metadata": {
+          "category": "security",
+          "confidence": "MEDIUM",
+          "cwe": "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
+          "license": "Commons Clause License Condition v1.0[LGPL-2.1-only]",
+          "owasp": "A1: Injection",
+          "shortlink": "https://sg.run/ydEr",
+          "source": "https://semgrep.dev/r/go.lang.security.audit.database.string-formatted-query.string-formatted-query",
+          "source-rule-url": "https://github.com/securego/gosec",
+          "technology": [
+            "go"
+          ]
+        },
+        "metavars": {
+          "$OBJ": {
+            "abstract_content": "db",
+            "end": {
+              "col": 20,
+              "line": 14,
+              "offset": 175
+            },
+            "start": {
+              "col": 18,
+              "line": 14,
+              "offset": 173
+            },
+            "unique_id": {
+              "sid": 2,
+              "type": "id"
+            }
+          },
+          "$P": {
+            "abstract_content": "Sprintf",
+            "end": {
+              "col": 38,
+              "line": 14,
+              "offset": 193
+            },
+            "start": {
+              "col": 31,
+              "line": 14,
+              "offset": 186
+            },
+            "unique_id": {
+              "md5sum": "e02796b94ba70f59bb9e5f953685ea4e",
+              "type": "AST"
+            }
+          }
+        },
+        "severity": "WARNING"
+      },
+      "path": "go-00/main.go",
+      "start": {
+        "col": 18,
+        "line": 14,
+        "offset": 173
+      }
+    },
+    {
+      "check_id": "typescript.react.security.audit.react-unsanitized-property.react-unsanitized-property",
+      "end": {
+        "col": 21,
+        "line": 6,
+        "offset": 174
+      },
+      "extra": {
+        "fingerprint": "961607bf65ecc6b4df5b74c5df9a85e84209365e12723949664b448b3acc08b70bdaa2ecb2e47fd201b66c32939de2090332644cdf2d9e73828599ffc605f399_0",
+        "is_ignored": false,
+        "lines": "    p.innerHTML = x;",
+        "message": "User controlled data in a `p` is an anti-pattern that can lead to XSS vulnerabilities",
+        "metadata": {
+          "category": "security",
+          "cwe": "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+          "license": "Commons Clause License Condition v1.0[LGPL-2.1-only]",
+          "owasp": "A7: Cross-Site Scripting (XSS)",
+          "shortlink": "https://sg.run/70Zv",
+          "source": "https://semgrep.dev/r/typescript.react.security.audit.react-unsanitized-property.react-unsanitized-property",
+          "technology": [
+            "react"
+          ]
+        },
+        "metavars": {
+          "$X": {
+            "abstract_content": "p",
+            "end": {
+              "col": 6,
+              "line": 6,
+              "offset": 159
+            },
+            "start": {
+              "col": 5,
+              "line": 6,
+              "offset": 158
+            },
+            "unique_id": {
+              "sid": 3,
+              "type": "id"
+            }
+          }
+        },
+        "severity": "ERROR"
+      },
+      "path": "js-00/vulnerable.js",
+      "start": {
+        "col": 5,
+        "line": 6,
+        "offset": 158
+      }
+    },
+    {
+      "check_id": "typescript.react.security.audit.react-unsanitized-property.react-unsanitized-property",
+      "end": {
+        "col": 58,
+        "line": 13,
+        "offset": 365
+      },
+      "extra": {
+        "fingerprint": "42dfe9d5f8c188ae83c214a5fbeacfb8045b14842e454c507bc2ace33d55f1037fd2441254d807c80127fe14ff85c4776efb854903795ee692289638788feea1_0",
+        "is_ignored": false,
+        "lines": "  this.element.innerHTML = \"<a href='\"+url+\"'>About</a>\";",
+        "message": "User controlled data in a `this.element` is an anti-pattern that can lead to XSS vulnerabilities",
+        "metadata": {
+          "category": "security",
+          "cwe": "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+          "license": "Commons Clause License Condition v1.0[LGPL-2.1-only]",
+          "owasp": "A7: Cross-Site Scripting (XSS)",
+          "shortlink": "https://sg.run/70Zv",
+          "source": "https://semgrep.dev/r/typescript.react.security.audit.react-unsanitized-property.react-unsanitized-property",
+          "technology": [
+            "react"
+          ]
+        },
+        "metavars": {
+          "$X": {
+            "abstract_content": "this.element",
+            "end": {
+              "col": 15,
+              "line": 13,
+              "offset": 322
+            },
+            "start": {
+              "col": 3,
+              "line": 13,
+              "offset": 310
+            },
+            "unique_id": {
+              "md5sum": "7d297d24b64e15bb8973ca78ce9cc638",
+              "type": "AST"
+            }
+          }
+        },
+        "severity": "ERROR"
+      },
+      "path": "js-00/vulnerable.js",
+      "start": {
+        "col": 3,
+        "line": 13,
+        "offset": 310
+      }
+    },
+    {
+      "check_id": "typescript.react.security.audit.react-unsanitized-property.react-unsanitized-property",
+      "end": {
+        "col": 62,
+        "line": 18,
+        "offset": 487
+      },
+      "extra": {
+        "fingerprint": "cd1e64e58eda9dc73a41973fc931ab78f10979170ae0e1e9fa635738bead726065338b90f25f40d64156630b9e3b14e5a4427cc7353ff6622910b5d5740301e0_0",
+        "is_ignored": false,
+        "lines": "  ReactDOM.findDOMNode(this.someRef).outerHTML = input.value;",
+        "message": "User controlled data in a `ReactDOM.findDOMNode(this.someRef)` is an anti-pattern that can lead to XSS vulnerabilities",
+        "metadata": {
+          "category": "security",
+          "cwe": "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+          "license": "Commons Clause License Condition v1.0[LGPL-2.1-only]",
+          "owasp": "A7: Cross-Site Scripting (XSS)",
+          "shortlink": "https://sg.run/70Zv",
+          "source": "https://semgrep.dev/r/typescript.react.security.audit.react-unsanitized-property.react-unsanitized-property",
+          "technology": [
+            "react"
+          ]
+        },
+        "metavars": {
+          "$X": {
+            "abstract_content": "ReactDOM.findDOMNode(this.someRef)",
+            "end": {
+              "col": 37,
+              "line": 18,
+              "offset": 462
+            },
+            "start": {
+              "col": 3,
+              "line": 18,
+              "offset": 428
+            },
+            "unique_id": {
+              "md5sum": "a1c5365bb43ee823c883e301416305e6",
+              "type": "AST"
+            }
+          }
+        },
+        "severity": "ERROR"
+      },
+      "path": "js-00/vulnerable.js",
+      "start": {
+        "col": 3,
+        "line": 18,
+        "offset": 428
+      }
+    }
+  ],
+  "version": "0.103.0"
+}

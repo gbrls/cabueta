@@ -1,0 +1,358 @@
+{
+  "type": "response",
+  "url": "http://gbrls.space/",
+  "original_url": "http://gbrls.space",
+  "path": "/",
+  "wildcard": false,
+  "status": 403,
+  "method": "GET",
+  "content_length": 8474,
+  "line_count": 318,
+  "word_count": 877,
+  "headers": {
+    "content-type": "text/html; charset=UTF-8",
+    "date": "Tue, 12 Jul 2022 13:12:59 GMT",
+    "accept-ranges": "bytes",
+    "server": "Apache/2.4.54 (Fedora Linux)",
+    "last-modified": "Mon, 28 Mar 2022 19:46:48 GMT",
+    "etag": "\"211a-5db4c92a77a00\"",
+    "content-length": "8474"
+  },
+  "extension": ""
+}
+{
+  "type": "statistics",
+  "timeouts": 0,
+  "requests": 60006,
+  "expected_per_scan": 30000,
+  "total_expected": 60000,
+  "errors": 0,
+  "successes": 1,
+  "redirects": 0,
+  "client_errors": 60005,
+  "server_errors": 0,
+  "total_scans": 2,
+  "initial_targets": 0,
+  "links_extracted": 0,
+  "extensions_collected": 0,
+  "status_200s": 1,
+  "status_301s": 0,
+  "status_302s": 0,
+  "status_401s": 0,
+  "status_403s": 5,
+  "status_429s": 0,
+  "status_500s": 0,
+  "status_503s": 0,
+  "status_504s": 0,
+  "status_508s": 0,
+  "wildcards_filtered": 0,
+  "responses_filtered": 0,
+  "resources_discovered": 1,
+  "url_format_errors": 0,
+  "redirection_errors": 0,
+  "connection_errors": 0,
+  "request_errors": 0,
+  "directory_scan_times": [
+    93.368485791,
+    93.185212791
+  ],
+  "total_runtime": [
+    95.004885166
+  ]
+}
+{
+  "type": "response",
+  "url": "http://gbrls.space/",
+  "original_url": "http://gbrls.space",
+  "path": "/",
+  "wildcard": false,
+  "status": 403,
+  "method": "GET",
+  "content_length": 8474,
+  "line_count": 318,
+  "word_count": 877,
+  "headers": {
+    "server": "Apache/2.4.54 (Fedora Linux)",
+    "last-modified": "Mon, 28 Mar 2022 19:46:48 GMT",
+    "accept-ranges": "bytes",
+    "content-length": "8474",
+    "content-type": "text/html; charset=UTF-8",
+    "date": "Tue, 12 Jul 2022 13:23:52 GMT",
+    "etag": "\"211a-5db4c92a77a00\""
+  },
+  "extension": ""
+}
+{
+  "type": "response",
+  "url": "http://gbrls.space/",
+  "original_url": "http://gbrls.space",
+  "path": "/",
+  "wildcard": false,
+  "status": 403,
+  "method": "GET",
+  "content_length": 8474,
+  "line_count": 318,
+  "word_count": 877,
+  "headers": {
+    "last-modified": "Mon, 28 Mar 2022 19:46:48 GMT",
+    "content-type": "text/html; charset=UTF-8",
+    "date": "Thu, 14 Jul 2022 13:12:17 GMT",
+    "etag": "\"211a-5db4c92a77a00\"",
+    "server": "Apache/2.4.54 (Fedora Linux)",
+    "accept-ranges": "bytes",
+    "content-length": "8474"
+  },
+  "extension": ""
+}
+{
+  "type": "response",
+  "url": "http://gbrls.space/",
+  "original_url": "http://gbrls.space",
+  "path": "/",
+  "wildcard": false,
+  "status": 403,
+  "method": "GET",
+  "content_length": 8474,
+  "line_count": 318,
+  "word_count": 877,
+  "headers": {
+    "date": "Thu, 14 Jul 2022 13:12:25 GMT",
+    "server": "Apache/2.4.54 (Fedora Linux)",
+    "last-modified": "Mon, 28 Mar 2022 19:46:48 GMT",
+    "accept-ranges": "bytes",
+    "content-type": "text/html; charset=UTF-8",
+    "content-length": "8474",
+    "etag": "\"211a-5db4c92a77a00\""
+  },
+  "extension": ""
+}
+{
+  "type": "response",
+  "url": "http://gbrls.space/",
+  "original_url": "http://gbrls.space",
+  "path": "/",
+  "wildcard": false,
+  "status": 403,
+  "method": "GET",
+  "content_length": 8474,
+  "line_count": 318,
+  "word_count": 877,
+  "headers": {
+    "date": "Thu, 14 Jul 2022 13:14:13 GMT",
+    "accept-ranges": "bytes",
+    "content-type": "text/html; charset=UTF-8",
+    "last-modified": "Mon, 28 Mar 2022 19:46:48 GMT",
+    "server": "Apache/2.4.54 (Fedora Linux)",
+    "etag": "\"211a-5db4c92a77a00\"",
+    "content-length": "8474"
+  },
+  "extension": ""
+}
+{
+  "type": "response",
+  "url": "http://gbrls.space/",
+  "original_url": "http://gbrls.space",
+  "path": "/",
+  "wildcard": false,
+  "status": 403,
+  "method": "GET",
+  "content_length": 8474,
+  "line_count": 318,
+  "word_count": 877,
+  "headers": {
+    "date": "Thu, 14 Jul 2022 13:14:20 GMT",
+    "server": "Apache/2.4.54 (Fedora Linux)",
+    "content-type": "text/html; charset=UTF-8",
+    "accept-ranges": "bytes",
+    "etag": "\"211a-5db4c92a77a00\"",
+    "content-length": "8474",
+    "last-modified": "Mon, 28 Mar 2022 19:46:48 GMT"
+  },
+  "extension": ""
+}
+{
+  "type": "response",
+  "url": "http://gbrls.space/",
+  "original_url": "http://gbrls.space",
+  "path": "/",
+  "wildcard": false,
+  "status": 200,
+  "method": "GET",
+  "content_length": 40,
+  "line_count": 3,
+  "word_count": 6,
+  "headers": {
+    "server": "Apache/2.4.54 (Fedora Linux)",
+    "accept-ranges": "bytes",
+    "content-type": "text/html; charset=UTF-8",
+    "date": "Thu, 14 Jul 2022 13:31:22 GMT",
+    "content-length": "40",
+    "etag": "\"28-5e3c3de84dbe1\"",
+    "last-modified": "Thu, 14 Jul 2022 13:27:54 GMT"
+  },
+  "extension": ""
+}
+{
+  "type": "statistics",
+  "timeouts": 77,
+  "requests": 60006,
+  "expected_per_scan": 30000,
+  "total_expected": 60000,
+  "errors": 80,
+  "successes": 6,
+  "redirects": 0,
+  "client_errors": 59920,
+  "server_errors": 0,
+  "total_scans": 2,
+  "initial_targets": 0,
+  "links_extracted": 0,
+  "extensions_collected": 0,
+  "status_200s": 6,
+  "status_301s": 0,
+  "status_302s": 0,
+  "status_401s": 0,
+  "status_403s": 0,
+  "status_429s": 0,
+  "status_500s": 0,
+  "status_503s": 0,
+  "status_504s": 0,
+  "status_508s": 0,
+  "wildcards_filtered": 0,
+  "responses_filtered": 0,
+  "resources_discovered": 1,
+  "url_format_errors": 0,
+  "redirection_errors": 0,
+  "connection_errors": 0,
+  "request_errors": 3,
+  "directory_scan_times": [
+    131.280371125,
+    131.883554833
+  ],
+  "total_runtime": [
+    133.859294
+  ]
+}
+{
+  "type": "response",
+  "url": "http://gbrls.space/admin",
+  "original_url": "http://gbrls.space",
+  "path": "/admin",
+  "wildcard": false,
+  "status": 200,
+  "method": "GET",
+  "content_length": 1095,
+  "line_count": 32,
+  "word_count": 71,
+  "headers": {
+    "content-length": "1095",
+    "content-type": "text/html; charset=utf-8",
+    "cross-origin-window-policy": "deny",
+    "x-frame-options": "SAMEORIGIN",
+    "x-xss-protection": "1; mode=block",
+    "set-cookie": "_exserver_key=SFMyNTY.g3QAAAABbQAAAAtfY3NyZl90b2tlbm0AAAAYekdkRmlRZ1lNZkJ6Wlg2blFOQ2Fjelhz.GW1GY__TBYod-nrKs8TFSUFjRAcq0Kjk7zg6i64YMQI; path=/; HttpOnly",
+    "cache-control": "max-age=0, private, must-revalidate",
+    "x-request-id": "FwG4KUJje3klJRoAAALh",
+    "date": "Thu, 14 Jul 2022 14:23:44 GMT",
+    "server": "Cowboy",
+    "x-content-type-options": "nosniff",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+  },
+  "extension": ""
+}
+{
+  "type": "response",
+  "url": "http://gbrls.space/",
+  "original_url": "http://gbrls.space",
+  "path": "/",
+  "wildcard": false,
+  "status": 200,
+  "method": "GET",
+  "content_length": 2208,
+  "line_count": 72,
+  "word_count": 142,
+  "headers": {
+    "set-cookie": "_exserver_key=SFMyNTY.g3QAAAABbQAAAAtfY3NyZl90b2tlbm0AAAAYekFMcFZlNnQ2Y1JJRUVPUnA4YVhfWWdn.tcTEXiTclH8Ayuos1BHMA4hDzru6vZEwUFLADh1ka5E; path=/; HttpOnly",
+    "date": "Thu, 14 Jul 2022 14:23:44 GMT",
+    "cross-origin-window-policy": "deny",
+    "server": "Cowboy",
+    "x-request-id": "FwG4KULohUvl1QQAAAOR",
+    "x-content-type-options": "nosniff",
+    "content-length": "2208",
+    "cache-control": "max-age=0, private, must-revalidate",
+    "content-type": "text/html; charset=utf-8",
+    "x-download-options": "noopen",
+    "x-frame-options": "SAMEORIGIN",
+    "x-permitted-cross-domain-policies": "none",
+    "x-xss-protection": "1; mode=block"
+  },
+  "extension": ""
+}
+{
+  "type": "response",
+  "url": "http://gbrls.space/about",
+  "original_url": "http://gbrls.space",
+  "path": "/about",
+  "wildcard": false,
+  "status": 200,
+  "method": "GET",
+  "content_length": 1095,
+  "line_count": 32,
+  "word_count": 71,
+  "headers": {
+    "content-type": "text/html; charset=utf-8",
+    "date": "Thu, 14 Jul 2022 14:23:44 GMT",
+    "cross-origin-window-policy": "deny",
+    "x-content-type-options": "nosniff",
+    "x-permitted-cross-domain-policies": "none",
+    "server": "Cowboy",
+    "x-request-id": "FwG4KVYchh1ldpsAAAlx",
+    "set-cookie": "_exserver_key=SFMyNTY.g3QAAAABbQAAAAtfY3NyZl90b2tlbm0AAAAYZmMySGNhVWN0SHYwUS1CbWVtbVRvenVE.UZH6C-dcPQgQcDM3Z69QmxPSLCn9vJDk8WPlvl15kiI; path=/; HttpOnly",
+    "cache-control": "max-age=0, private, must-revalidate",
+    "x-download-options": "noopen",
+    "x-frame-options": "SAMEORIGIN",
+    "content-length": "1095",
+    "x-xss-protection": "1; mode=block"
+  },
+  "extension": ""
+}
+{
+  "type": "statistics",
+  "timeouts": 0,
+  "requests": 60006,
+  "expected_per_scan": 30000,
+  "total_expected": 60000,
+  "errors": 0,
+  "successes": 10,
+  "redirects": 0,
+  "client_errors": 59996,
+  "server_errors": 0,
+  "total_scans": 2,
+  "initial_targets": 0,
+  "links_extracted": 0,
+  "extensions_collected": 0,
+  "status_200s": 10,
+  "status_301s": 0,
+  "status_302s": 0,
+  "status_401s": 0,
+  "status_403s": 0,
+  "status_429s": 0,
+  "status_500s": 0,
+  "status_503s": 0,
+  "status_504s": 0,
+  "status_508s": 0,
+  "wildcards_filtered": 0,
+  "responses_filtered": 0,
+  "resources_discovered": 3,
+  "url_format_errors": 0,
+  "redirection_errors": 0,
+  "connection_errors": 0,
+  "request_errors": 0,
+  "directory_scan_times": [
+    94.336980958,
+    94.154616875
+  ],
+  "total_runtime": [
+    96.56974525
+  ]
+}

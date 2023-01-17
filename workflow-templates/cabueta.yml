@@ -1,0 +1,25 @@
+name: cabueta
+on:
+  # Other options can be added here to make cabueta run on a per PR and per commit basis
+  workflow_dispatch:
+
+jobs:
+  cabueta:
+    uses: gbrls/cabueta/.github/workflows/cabueta.yml@main
+    with:
+      # Turn this on if you want nuclei to test the target-url
+      dast-check: false
+      target-url: https://your-website-here.com
+      
+      # Configure and turn this on if you want to collect logs in your endpoint
+      upload-logs: false
+      aws-role: AWS_ROLE_HERE
+      aws-region: AWS_REGION_HERE
+      upload-url: https://endpoint-to-collect-logs-via-http-post.com
+
+  print:
+    runs-on: ubuntu-latest
+    needs: cabueta
+    steps:
+    - name: Print output
+      run: echo ${{ needs.cabueta.outputs.report }}

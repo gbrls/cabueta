@@ -1,0 +1,211 @@
+name: Cabueta
+
+on:
+  workflow_call:
+    secrets: 
+      # Not used as secrets, kept here for backwards compatibility
+      target_url:
+        required: false
+    outputs:
+      report:
+        description: "Markdown report"
+        value: ${{ jobs.elixir.outputs.mdreport }}
+    inputs:
+      dast-check:
+        description: "Whether to run DAST checks or not"
+        default: false
+        type: boolean
+      target-url:
+        type: string
+        required: false
+      
+      upload-logs:
+        type: boolean
+        default: false
+        required: false
+      aws-role:
+        type: string
+        required: false
+      aws-region:
+        type: string
+        required: false
+      upload-url:
+        type: string
+        required: false
+
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  run-semgrep:
+    runs-on: ubuntu-latest
+    name: semgrep
+    container:
+      image: returntocorp/semgrep
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+      - name: call semgrep
+        run: |
+          echo "running semgrep..."
+          semgrep scan --config auto --json > semgrep-report.json
+      - uses: actions/upload-artifact@v3
+        with:
+          name: semgrep-report.json
+          path: semgrep-report.json
+  run-gitleaks:
+    runs-on: ubuntu-latest
+    container:
+      image: golang
+    name: gitleaks 
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
+        with:
+          repository: 'gbrls/cabueta'
+          path: 'cabueta'
+          persist-credentials: false
+      - name: call gitleaks
+        run: |
+          mv cabueta/.cabueta .
+          rm -rf cabueta
+          git clone https://github.com/zricethezav/gitleaks
+          cd gitleaks && go build
+          mv gitleaks ../gitleaks_bin
+          cd ..
+          rm -rf gitleaks
+          ./gitleaks_bin detect -r /tmp/gitleaks-report.json -c .cabueta/config.toml || true
+      - uses: actions/upload-artifact@v3
+        with:
+          name: gitleaks-report.json
+          path: /tmp/gitleaks-report.json
+  run-nuclei:
+    runs-on: ubuntu-latest
+    name: nuclei
+    steps:
+    - uses: projectdiscovery/nuclei-action@v1.0.7
+      if: inputs.dast-check == true
+      with:
+        json: true
+        output: nuclei.json
+        target: ${{ inputs.target-url }}
+        user-agent: cabueta
+    - uses: actions/upload-artifact@v3
+      if: inputs.dast-check == true
+      with:
+        name: nuclei.json
+        path: nuclei.json
+  run-osv-scan:
+    runs-on: ubuntu-latest
+    name: osv-scan
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-go@v3.5.0
+      - name: run-osv-scan
+        run: |
+          go install github.com/google/osv-scanner/cmd/osv-scanner@v1
+          ulimit -Sn 65536
+          ~/go/bin/osv-scanner --json -r . > osv-scan.json || true
+          cat osv-scan.json
+      - uses: actions/upload-artifact@v3
+        with:
+          name: osv-scan.json
+          path: osv-scan.json
+  distill-reports:
+    runs-on: ubuntu-latest
+    # We needs this otherwise it'll run the jobs in parallel 
+    needs: [run-semgrep, run-gitleaks, run-osv-scan, run-nuclei]
+    name: Read reports
+    container:
+      image: elixir
+    outputs:
+      mdreport: ${{ steps.elixir.outputs.report }}
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          repository: gbrls/cabueta
+      - uses: actions/download-artifact@v3
+        with:
+          name: semgrep-report.json
+      - uses: actions/download-artifact@v3
+        with:
+          name: gitleaks-report.json
+      - uses: actions/download-artifact@v3
+        if: inputs.dast-check == true
+        with:
+          name: nuclei.json
+      - uses: actions/download-artifact@v3
+        with:
+          name: osv-scan.json
+      - name: list artifacts
+        run: |
+          pwd
+          ls -l
+      - name: filter nuclei with jq
+        if: inputs.dast-check == true
+        uses: sergeysova/jq-action@v2
+        id: jq-nuclei
+        with:
+          cmd: 'jq -s < nuclei.json > nuclei-new.json'
+          multiline: true
+          
+      - id: elixir
+        run: |
+          pwd
+          ls -l
+          find .
+          mix local.hex --force
+          mix deps.get
+          mix cabueta osv-scan.json nuclei-new.json semgrep-report.json gitleaks-report.json > report.md
+          tail -n +"$(grep -n 'Cabueta' report.md | cut -d: -f 1)" report.md > report-final.md
+          report=$(echo report-final.md)
+          echo "::set-output name=report::${report}"
+          cat report-final.md >> $GITHUB_STEP_SUMMARY
+
+          ls -la
+          export reportjson=$(find *cabueta-report-v0.json)
+          cp $reportjson finalreport.json
+      - uses: actions/upload-artifact@v3
+        with:
+          name: finalreport.json
+          path: finalreport.json
+  send-logs:
+    if: ${{ inputs.upload-logs }}
+    runs-on: ubuntu-latest
+    name: send-logs
+    needs: [distill-reports]
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - name: "Configure AWS Credentials"
+        continue-on-error: true
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-region: ${{ inputs.aws-region }}
+          role-to-assume: ${{ inputs.aws-role }}
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install awscurl
+      - uses: actions/checkout@v2
+        with:
+          repository: 'gbrls/cabueta'
+          path: 'cabueta'
+          persist-credentials: false
+      - uses: actions/download-artifact@v3
+        with:
+          name: finalreport.json
+      - name: Upload to AWS
+        continue-on-error: true
+        run: |
+          ./cabueta/scripts/upload-file.sh finalreport.json ${{ inputs.upload-url }}
+
+     
+      
+    
+    
