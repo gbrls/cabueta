@@ -1,3 +1,6 @@
 name: Cabueta
 description: Security Scanning in your CI/CD
 author: Gabriel Schneider
+branding:
+  icon: 'eye'
+  color: 'blue'
