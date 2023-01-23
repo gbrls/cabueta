@@ -18,18 +18,24 @@ on:
       target-url:
         type: string
         required: false
-      
+
+
+      upload-auth:
+        type: string
+        default: "aws"
+        required: false
       upload-logs:
         type: boolean
         default: false
         required: false
+      upload-url:
+        type: string
+        required: false
+
       aws-role:
         type: string
         required: false
       aws-region:
-        type: string
-        required: false
-      upload-url:
         type: string
         required: false
 
@@ -179,16 +185,19 @@ jobs:
       contents: read
     steps:
       - name: "Configure AWS Credentials"
+        if: ${{ inputs.upload-auth == "aws" }}
         continue-on-error: true
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-region: ${{ inputs.aws-region }}
           role-to-assume: ${{ inputs.aws-role }}
       - name: Set up Python 3.8
+        if: ${{ inputs.upload-auth == "aws" }}
         uses: actions/setup-python@v2
         with:
           python-version: 3.8
       - name: Install dependencies
+        if: ${{ inputs.upload-auth == "aws" }}
         run: |
           python -m pip install --upgrade pip
           pip install awscurl
@@ -201,9 +210,15 @@ jobs:
         with:
           name: finalreport.json
       - name: Upload to AWS
+        if: ${{ inputs.upload-auth == "aws" }}
         continue-on-error: true
         run: |
           ./cabueta/scripts/upload-file.sh finalreport.json ${{ inputs.upload-url }}
+      - name: Upload to URL
+        if: ${{ inputs.upload-auth == "none" }}
+        continue-on-error: true
+        run: |
+          curl --data-binary finalreport.json -X POST ${{ inputs.upload-url }}
 
      
       

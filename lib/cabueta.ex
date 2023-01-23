@@ -1,6 +1,9 @@
 require Logger
 
 defmodule Mix.Tasks.Cabueta do
+@moduledoc """
+Runs cabueta to distill json reports to markdown 
+"""
   use Mix.Task
 
   def run(args) do
@@ -9,7 +12,7 @@ defmodule Mix.Tasks.Cabueta do
     in_files = args
 
     if length(in_files) == 0 do
-      IO.puts("No files given")
+      IO.puts("No files given!")
       Main.test_tools()
     end
 

@@ -41,6 +41,7 @@ on:
 
 jobs:
   cabueta:
+    # You can change version here from @main to a label such as @v1.0.1
     uses: gbrls/cabueta/.github/workflows/cabueta.yml@main
     with:
       # Turn this on if you want nuclei to test the target-url
