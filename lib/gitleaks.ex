@@ -42,4 +42,8 @@ defmodule Gitleaks do
   def id do
     :gitleaks
   end
+
+  def command() do
+    "gitleaks"
+  end
 end

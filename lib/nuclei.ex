@@ -52,4 +52,8 @@ defmodule Nuclei do
   def id() do
     :nuclei
   end
+
+  def command() do
+    "nuclei"
+  end
 end

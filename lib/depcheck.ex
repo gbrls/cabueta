@@ -19,7 +19,6 @@ defmodule DepCheck do
   end
 
   def to_markdown(reports) do
-
     details =
       reports
       |> Enum.map(fn [id, desc] -> Markdown.list("Software: `#{id}`", [desc]) end)
@@ -40,5 +39,9 @@ defmodule DepCheck do
 
   def id do
     :dependency_check
+  end
+
+  def command() do
+    "dependency-check"
   end
 end

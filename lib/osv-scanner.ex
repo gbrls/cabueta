@@ -2,7 +2,7 @@ defmodule OsvScanner do
   @behaviour Tool
 
   def to_markdown(nil) do
-    Markdown.toggle_stats("Vulnerable Dependencies", 0, "") 
+    Markdown.toggle_stats("Vulnerable Dependencies", 0, "")
   end
 
   def to_markdown(reports) do
@@ -33,7 +33,7 @@ defmodule OsvScanner do
       end)
       |> Enum.join("\n")
 
-    Markdown.toggle_stats("Vulnerable Dependencies", length(reports), details) 
+    Markdown.toggle_stats("Vulnerable Dependencies", length(reports), details)
   end
 
   def process_report(data) do
@@ -70,5 +70,9 @@ defmodule OsvScanner do
 
   def id() do
     :osv_scanner
+  end
+
+  def command() do
+    "osv-scanner"
   end
 end

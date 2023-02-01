@@ -63,4 +63,8 @@ defmodule Ferox do
   def id do
     :feroxbuster
   end
+
+  def command do
+    "feroxbuster"
+  end
 end

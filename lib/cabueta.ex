@@ -43,6 +43,7 @@ defmodule Tool do
   @callback process_report(String.t()) :: [Map.t()]
   @callback test_report() :: String.t()
   @callback id() :: Atom.t()
+  @callback command(Cabueta.Config.t()) :: String.t()
 end
 
 defmodule Markdown do
