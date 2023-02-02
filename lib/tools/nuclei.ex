@@ -53,7 +53,7 @@ defmodule Nuclei do
     :nuclei
   end
 
-  def command() do
+  def command(%Cabueta.Config{} = _cfg) do
     "nuclei"
   end
 end

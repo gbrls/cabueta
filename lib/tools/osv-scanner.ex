@@ -72,7 +72,7 @@ defmodule OsvScanner do
     :osv_scanner
   end
 
-  def command() do
+  def command(%Cabueta.Config{} = _cfg) do
     "osv-scanner"
   end
 end

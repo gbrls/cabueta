@@ -22,7 +22,8 @@ defmodule Cabueta.MixProject do
   defp deps do
     [
       {:jason, "~> 1.4"},
-      {:csv, "~> 2.4"}
+      {:csv, "~> 2.4"},
+      {:yaml_elixir, "~> 2.9"},
     ]
   end
 end

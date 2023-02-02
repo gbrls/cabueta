@@ -41,7 +41,7 @@ defmodule DepCheck do
     :dependency_check
   end
 
-  def command() do
+  def command(%Cabueta.Config{} = _cfg) do
     "dependency-check"
   end
 end
