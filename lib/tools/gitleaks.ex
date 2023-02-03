@@ -44,6 +44,6 @@ defmodule Gitleaks do
   end
 
   def command(%Cabueta.Config{output_path: out_path} = _cfg) do
-    "gitleaks detect -r #{out_path}"
+    "gitleaks detect -r #{out_path}/gitleaks.json"
   end
 end

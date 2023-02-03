@@ -53,7 +53,7 @@ defmodule Nuclei do
     :nuclei
   end
 
-  def command(%Cabueta.Config{} = _cfg) do
-    "nuclei"
+  def command(%Cabueta.Config{} = cfg) do
+    "nuclei -u #{cfg.dast_url} -json | jq -s > #{cfg.output_path}/nuclei.json"
   end
 end

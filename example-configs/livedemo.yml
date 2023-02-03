@@ -11,4 +11,4 @@ jobs:
           target-url: "http://gbrls.space"
           upload-logs: true
           upload-url: "http://gbrls.space/logs"
-          output-path: "./reports"
+          output-path: "./local-reports"

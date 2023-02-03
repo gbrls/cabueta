@@ -64,7 +64,7 @@ defmodule Ferox do
     :feroxbuster
   end
 
-  def command do
+  def command(%Cabueta.Config{}) do
     "feroxbuster"
   end
 end

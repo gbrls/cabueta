@@ -2,13 +2,11 @@ require Logger
 
 defmodule Mix.Tasks.Cabueta do
 @moduledoc """
-Runs cabueta to distill json reports to markdown 
+Runs cabueta to distill json reports to markdown
 """
   use Mix.Task
 
   def run(args) do
-    args |> IO.inspect()
-
     in_files = args
 
     if length(in_files) == 0 do
@@ -110,9 +108,9 @@ defmodule Main do
   end
 
   def test_tools() do
-    reports =
+    _reports =
       Enum.map(@tools, fn tool ->
-        Logger.info("Testing #{tool}")
+        #Logger.info("Testing #{tool}")
         tool.test_report()
       end)
       |> List.flatten()
@@ -134,7 +132,7 @@ defmodule Main do
       end
     end
 
-    Logger.info("Decoding #{file}")
+    #Logger.info("Decoding #{file}")
 
     %{
       path: file,
@@ -182,7 +180,7 @@ defmodule Main do
         %{id: mod.id(), markdown: md, report: report}
 
       {:error, _} ->
-        Logger.info("Ignoring #{file}")
+        #Logger.info("Ignoring #{file}")
         nil
     end
   end

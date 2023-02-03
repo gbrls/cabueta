@@ -3,37 +3,55 @@ defmodule Mix.Tasks.RunTools do
 
   def run(args) do
     cfgfile = args |> Enum.at(0)
-    IO.inspect(cfgfile)
 
-    RunLocal.available_tools(cfgfile) |> IO.inspect()
+    cmds = RunLocal.available_tools(cfgfile)
+    cmds |> Enum.each(&System.cmd("bash", ["-c", &1]))
   end
 end
 
 defmodule RunLocal do
   require Logger
 
-  def in_path?(str) do
+  def in_path?(cmd, print \\ true) do
+    str = cmd |> String.split() |> hd
     {path, _b} = System.cmd("which", [str], stderr_to_stdout: true)
 
-    String.length(path) > 0
+    ans = String.length(path) > 0
+
+    if print do
+      IO.puts(
+        "#{str}...#{if ans do
+          IO.ANSI.green() <> "ok"
+        else
+          IO.ANSI.red() <> "Not Found"
+        end}#{IO.ANSI.reset()}"
+      )
+    end
+
+    ans
   end
 
   def available_tools(cfgfile) do
     cfg =
       case config_from_yml(cfgfile) do
         %Cabueta.Config{} = x -> x
-        _any -> %Cabueta.Config{dast: true}
+        _any -> %Cabueta.Config{}
       end
 
     IO.inspect(cfg)
 
-    programs = enabled_modules(cfg) |> Enum.map(fn mod -> mod.command(cfg) end)
+    programs = (enabled_modules(cfg) |> Enum.map(fn mod -> mod.command(cfg) end)) ++ ["jq", "glow"]
 
     programs
     |> Enum.map(fn t ->
-      IO.puts("#{t}...#{in_path?(t)}")
       {t, in_path?(t)}
     end)
+
+    if programs |> Enum.any?(&match?({_, false}, &1)) do
+      raise "Missing programs"
+    end
+
+    programs
   end
 
   def enabled_modules(%Cabueta.Config{} = cfg) do
@@ -46,15 +64,19 @@ defmodule RunLocal do
     end
   end
 
+  def config_from_yml(nil), do: nil
+
   def config_from_yml(p) do
     mp =
       case YamlElixir.read_all_from_file(p) do
         {:ok, mp} ->
-          mp |> parse_config |> IO.inspect()
+          mp |> parse_config
 
-        err ->
-          Logger.error("Error reading yaml #{err}")
+        {:error, reason} ->
+          IO.puts "#{reason |> inspect(pretty: true)}"
+          IO.puts(IO.ANSI.yellow <> "Using default config" <> IO.ANSI.reset)
           nil
+
       end
 
     case mp do
@@ -67,7 +89,7 @@ defmodule RunLocal do
           {"target-url", :dast_url},
           {"upload-url", :upload_url},
           {"upload-logs", :upload_logs},
-          {"output-path", :output_path},
+          {"output-path", :output_path}
         ]
 
         base_cfg = %Cabueta.Config{}

@@ -72,7 +72,7 @@ defmodule OsvScanner do
     :osv_scanner
   end
 
-  def command(%Cabueta.Config{} = _cfg) do
-    "osv-scanner"
+  def command(%Cabueta.Config{} = cfg) do
+    "osv-scanner --json -r #{cfg.base_dir} > #{cfg.output_path}/osv-scan.json"
   end
 end
