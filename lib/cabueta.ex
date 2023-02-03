@@ -1,13 +1,15 @@
 require Logger
 
 defmodule Mix.Tasks.Cabueta do
-@moduledoc """
-Runs cabueta to distill json reports to markdown
-"""
+  @moduledoc """
+  Runs cabueta to distill json reports to markdown
+  """
   use Mix.Task
 
   def run(args) do
-    in_files = args
+    in_files = args |> Enum.filter(fn x -> !String.starts_with?(x, "-") end)
+
+    {parsed, _args, _invalid} = OptionParser.parse(args, strict: [json: :boolean])
 
     if length(in_files) == 0 do
       IO.puts("No files given!")
@@ -23,8 +25,13 @@ Runs cabueta to distill json reports to markdown
     # JSON file to store in DB
     Main.store_report(reports)
 
+    if parsed[:json]  do
+      IO.puts(reports |> Main.json_report())
+    else
+      IO.puts(reports.markdown)
+    end
+
     # The cabueta's report itself
-    IO.puts(reports.markdown)
   end
 end
 
@@ -110,7 +117,7 @@ defmodule Main do
   def test_tools() do
     _reports =
       Enum.map(@tools, fn tool ->
-        #Logger.info("Testing #{tool}")
+        # Logger.info("Testing #{tool}")
         tool.test_report()
       end)
       |> List.flatten()
@@ -132,7 +139,7 @@ defmodule Main do
       end
     end
 
-    #Logger.info("Decoding #{file}")
+    # Logger.info("Decoding #{file}")
 
     %{
       path: file,
@@ -180,7 +187,7 @@ defmodule Main do
         %{id: mod.id(), markdown: md, report: report}
 
       {:error, _} ->
-        #Logger.info("Ignoring #{file}")
+        # Logger.info("Ignoring #{file}")
         nil
     end
   end
@@ -226,8 +233,13 @@ defmodule Main do
     "#{repo}@#{branch}@#{time}-cabueta-report-v0.json"
   end
 
+  def json_report(report) do
+    # TODO: Recursively remove markdown
+    report |> Map.delete(:markdown) |> Jason.encode!()
+  end
+
   def store_report(report) do
-    data = report |> Map.delete(:markdown) |> Jason.encode!()
+    data = report |> json_report()
 
     case Main.report_id() |> File.open([:write]) do
       {:ok, file} ->

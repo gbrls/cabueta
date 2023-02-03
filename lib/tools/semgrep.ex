@@ -148,7 +148,7 @@ defmodule Semgrep do
     :semgrep
   end
 
-  def command(%Cabueta.Config{output_path: out}) do
-    "semgrep --config auto --json > #{out}/semgrep-report.json"
+  def command(%Cabueta.Config{} = cfg) do
+    "semgrep --config auto #{cfg.base_dir} --json > #{cfg.output_path}/semgrep-report.json"
   end
 end

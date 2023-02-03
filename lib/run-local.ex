@@ -2,10 +2,13 @@ defmodule Mix.Tasks.RunTools do
   use Mix.Task
 
   def run(args) do
-    cfgfile = args |> Enum.at(0)
+    {parsed, _args, _invalid} =
+      OptionParser.parse(args, strict: [config: :boolean, path: :string])
 
-    cmds = RunLocal.available_tools(cfgfile)
-    cmds |> Enum.each(&System.cmd("bash", ["-c", &1]))
+    cfgfile = parsed[:config]
+
+    cmds = RunLocal.available_tools(cfgfile, parsed[:path])
+    cmds |> Enum.each(&System.cmd("bash", ["-c", "set -o xtrace;#{&1}"]))
   end
 end
 
@@ -31,18 +34,23 @@ defmodule RunLocal do
     ans
   end
 
-  def available_tools(cfgfile) do
+  def available_tools(cfgfile, path) do
     cfg =
       case config_from_yml(cfgfile) do
         %Cabueta.Config{} = x -> x
         _any -> %Cabueta.Config{}
       end
+      |> then(fn x ->
+        if path do
+          Map.put(x, :base_dir, path)
+        else
+          x
+        end
+      end)
 
-    IO.inspect(cfg)
+    programs = enabled_modules(cfg) |> Enum.map(fn mod -> mod.command(cfg) end)
 
-    programs = (enabled_modules(cfg) |> Enum.map(fn mod -> mod.command(cfg) end)) ++ ["jq", "glow"]
-
-    programs
+    (programs ++ ["jq", "glow"])
     |> Enum.map(fn t ->
       {t, in_path?(t)}
     end)
@@ -73,10 +81,9 @@ defmodule RunLocal do
           mp |> parse_config
 
         {:error, reason} ->
-          IO.puts "#{reason |> inspect(pretty: true)}"
-          IO.puts(IO.ANSI.yellow <> "Using default config" <> IO.ANSI.reset)
+          IO.puts("#{reason |> inspect(pretty: true)}")
+          IO.puts(IO.ANSI.yellow() <> "Using default config" <> IO.ANSI.reset())
           nil
-
       end
 
     case mp do

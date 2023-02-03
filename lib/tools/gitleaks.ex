@@ -43,7 +43,7 @@ defmodule Gitleaks do
     :gitleaks
   end
 
-  def command(%Cabueta.Config{output_path: out_path} = _cfg) do
-    "gitleaks detect -r #{out_path}/gitleaks.json"
+  def command(%Cabueta.Config{} = cfg) do
+    "gitleaks detect -r #{cfg.output_path}/gitleaks.json -s #{cfg.base_dir}"
   end
 end
